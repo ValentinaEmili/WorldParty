@@ -1,0 +1,3 @@
+# Extra requirements for the Melting Pot examples.
+absl_py
+ml_collections

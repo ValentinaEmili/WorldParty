@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+  "name": "Melting Pot",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "PYTHON_VERSION": "3.14"
+    }
+  },
+  "containerUser": "ubuntu",
+  "remoteUser": "ubuntu",
+  "postCreateCommand": "bin/install.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "donjayamanne.githistory",
+        "ms-azuretools.vscode-docker",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.pylint",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  }
+}
