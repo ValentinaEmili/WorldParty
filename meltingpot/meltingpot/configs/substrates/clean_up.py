@@ -50,7 +50,8 @@ from ml_collections import config_dict
 PrefabConfig = game_object_utils.PrefabConfig
 
 # Warning: setting `_ENABLE_DEBUG_OBSERVATIONS = True` may cause slowdown.
-_ENABLE_DEBUG_OBSERVATIONS = False
+#_ENABLE_DEBUG_OBSERVATIONS = False
+_ENABLE_DEBUG_OBSERVATIONS = True
 
 ASCII_MAP = """
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -816,20 +817,28 @@ def get_config():
       # Global switching signals for puppeteers.
       "NUM_OTHERS_WHO_CLEANED_THIS_STEP",
   ]
+  if _ENABLE_DEBUG_OBSERVATIONS:
+    config.individual_observation_names = list(
+        config.individual_observation_names) + ["POSITION", "ORIENTATION"]
+        
   config.global_observation_names = [
       "WORLD.RGB",
   ]
 
   # The specs of the environment (from a single-agent perspective).
   config.action_spec = specs.action(len(ACTION_SET))
-  config.timestep_spec = specs.timestep({
+  timestep_observations = {
       "RGB": specs.OBSERVATION["RGB"],
       "READY_TO_SHOOT": specs.OBSERVATION["READY_TO_SHOOT"],
       # Global switching signals for puppeteers.
       "NUM_OTHERS_WHO_CLEANED_THIS_STEP": specs.float64(),
       # Debug only (do not use the following observations in policies).
       "WORLD.RGB": specs.rgb(168, 240),
-  })
+  }
+  if _ENABLE_DEBUG_OBSERVATIONS:
+    timestep_observations["POSITION"] = specs.OBSERVATION["POSITION"]
+    timestep_observations["ORIENTATION"] = specs.OBSERVATION["ORIENTATION"]
+  config.timestep_spec = specs.timestep(timestep_observations)
 
   # The roles assigned to each player.
   config.valid_roles = frozenset({"default"})
