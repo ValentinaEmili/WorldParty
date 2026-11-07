@@ -50,8 +50,7 @@ from ml_collections import config_dict
 PrefabConfig = game_object_utils.PrefabConfig
 
 # Warning: setting `_ENABLE_DEBUG_OBSERVATIONS = True` may cause slowdown.
-#_ENABLE_DEBUG_OBSERVATIONS = False
-_ENABLE_DEBUG_OBSERVATIONS = True
+_ENABLE_DEBUG_OBSERVATIONS = False
 
 ASCII_MAP = """
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -817,10 +816,7 @@ def get_config():
       # Global switching signals for puppeteers.
       "NUM_OTHERS_WHO_CLEANED_THIS_STEP",
   ]
-  if _ENABLE_DEBUG_OBSERVATIONS:
-    config.individual_observation_names = list(
-        config.individual_observation_names) + ["POSITION", "ORIENTATION"]
-        
+   
   config.global_observation_names = [
       "WORLD.RGB",
   ]
