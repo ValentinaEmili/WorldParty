@@ -231,7 +231,7 @@ def save_records(
         "game": game,
         "num_players": num_players,
         "num_steps": len(records),
-        "seed": seed,
+        "policy_seed": seed,
         "policy": policy,
         "action_names": list(actions),
         "observation_keys": observation_keys,
@@ -259,7 +259,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--name", choices=SUPPORTED_GAMES, default="clean_up")
     parser.add_argument("--num_steps", type=int, default=1000)
-    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=0,
+        help=(
+            "Seed for random action sampling only; the environment itself is "
+            "not seeded by this value."
+        ),
+    )
     parser.add_argument("--policy", choices=("random", "noop"), default="random")
     parser.add_argument(
         "--output",
