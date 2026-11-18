@@ -1,0 +1,118 @@
+{
+  "checklist_item": 4,
+  "game": "coins",
+  "num_players": 2,
+  "num_steps": 1000,
+  "policy_seed": 0,
+  "policy": "random",
+  "action_names": [
+    "NOOP",
+    "FORWARD",
+    "BACKWARD",
+    "STEP_LEFT",
+    "STEP_RIGHT",
+    "TURN_LEFT",
+    "TURN_RIGHT"
+  ],
+  "observation_keys": [
+    "COLLECTIVE_REWARD",
+    "MISMATCHED_COIN_COLLECTED_BY_PARTNER",
+    "ORIENTATION",
+    "POSITION",
+    "RGB"
+  ],
+  "coordinate_convention": {
+    "positions": "(column, row), exactly as returned by POSITION",
+    "global_text": "one character per tile, rows separated by newlines"
+  },
+  "sources": {
+    "observations": "timestep.observation per player, raw",
+    "actions": "action index chosen for that step",
+    "pose": "POSITION and ORIENTATION debug observations",
+    "full_state": "GLOBAL.TEXT (whole-map text) and WORLD.RGB",
+    "rewards": "timestep.reward, one value per player"
+  },
+  "array_shapes": {
+    "actions": [
+      1000,
+      2
+    ],
+    "rewards": [
+      1000,
+      2
+    ],
+    "step_types": [
+      1000
+    ],
+    "discounts": [
+      1000
+    ],
+    "positions": [
+      1000,
+      2,
+      2
+    ],
+    "orientations": [
+      1000,
+      2
+    ],
+    "global_text": [
+      1000
+    ],
+    "world_rgb": [
+      1000,
+      136,
+      136,
+      3
+    ],
+    "action_names": [
+      7
+    ],
+    "game": [],
+    "num_players": [],
+    "num_steps": [],
+    "obs_COLLECTIVE_REWARD": [
+      1000,
+      2
+    ],
+    "obs_MISMATCHED_COIN_COLLECTED_BY_PARTNER": [
+      1000,
+      2
+    ],
+    "obs_ORIENTATION": [
+      1000,
+      2
+    ],
+    "obs_POSITION": [
+      1000,
+      2,
+      2
+    ],
+    "obs_RGB": [
+      1000,
+      2,
+      88,
+      88,
+      3
+    ]
+  },
+  "array_dtypes": {
+    "actions": "int32",
+    "rewards": "float32",
+    "step_types": "int8",
+    "discounts": "float32",
+    "positions": "int32",
+    "orientations": "int32",
+    "global_text": "<U306",
+    "world_rgb": "uint8",
+    "action_names": "<U10",
+    "game": "<U5",
+    "num_players": "int64",
+    "num_steps": "int64",
+    "obs_COLLECTIVE_REWARD": "float64",
+    "obs_MISMATCHED_COIN_COLLECTED_BY_PARTNER": "float64",
+    "obs_ORIENTATION": "int32",
+    "obs_POSITION": "int32",
+    "obs_RGB": "uint8"
+  }
+}

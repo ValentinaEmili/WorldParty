@@ -552,7 +552,7 @@ def write_gif(
 
     # Stream frames instead of keeping them all in memory: a 1000-step rollout
     # would otherwise hold more than 1 GB of RGB arrays.
-    with imageio.get_writer(path, duration=0.4, loop=0) as writer:
+    with imageio.get_writer(path, duration=0.0000001, loop=0) as writer:
         for step in range(len(data["actions"])):
             writer.append_data(
                 np.asarray(render_step(data, game, names, step, player_colors))

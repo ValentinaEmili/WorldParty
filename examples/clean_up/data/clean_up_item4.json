@@ -1,0 +1,126 @@
+{
+  "checklist_item": 4,
+  "game": "clean_up",
+  "num_players": 7,
+  "num_steps": 1000,
+  "policy_seed": 0,
+  "policy": "random",
+  "action_names": [
+    "NOOP",
+    "FORWARD",
+    "BACKWARD",
+    "STEP_LEFT",
+    "STEP_RIGHT",
+    "TURN_LEFT",
+    "TURN_RIGHT",
+    "FIRE_ZAP",
+    "FIRE_CLEAN"
+  ],
+  "observation_keys": [
+    "COLLECTIVE_REWARD",
+    "NUM_OTHERS_WHO_CLEANED_THIS_STEP",
+    "ORIENTATION",
+    "POSITION",
+    "READY_TO_SHOOT",
+    "RGB"
+  ],
+  "coordinate_convention": {
+    "positions": "(column, row), exactly as returned by POSITION",
+    "global_text": "one character per tile, rows separated by newlines"
+  },
+  "sources": {
+    "observations": "timestep.observation per player, raw",
+    "actions": "action index chosen for that step",
+    "pose": "POSITION and ORIENTATION debug observations",
+    "full_state": "GLOBAL.TEXT (whole-map text) and WORLD.RGB",
+    "rewards": "timestep.reward, one value per player"
+  },
+  "array_shapes": {
+    "actions": [
+      1000,
+      7
+    ],
+    "rewards": [
+      1000,
+      7
+    ],
+    "step_types": [
+      1000
+    ],
+    "discounts": [
+      1000
+    ],
+    "positions": [
+      1000,
+      7,
+      2
+    ],
+    "orientations": [
+      1000,
+      7
+    ],
+    "global_text": [
+      1000
+    ],
+    "world_rgb": [
+      1000,
+      168,
+      240,
+      3
+    ],
+    "action_names": [
+      9
+    ],
+    "game": [],
+    "num_players": [],
+    "num_steps": [],
+    "obs_COLLECTIVE_REWARD": [
+      1000,
+      7
+    ],
+    "obs_NUM_OTHERS_WHO_CLEANED_THIS_STEP": [
+      1000,
+      7
+    ],
+    "obs_ORIENTATION": [
+      1000,
+      7
+    ],
+    "obs_POSITION": [
+      1000,
+      7,
+      2
+    ],
+    "obs_READY_TO_SHOOT": [
+      1000,
+      7
+    ],
+    "obs_RGB": [
+      1000,
+      7,
+      88,
+      88,
+      3
+    ]
+  },
+  "array_dtypes": {
+    "actions": "int32",
+    "rewards": "float32",
+    "step_types": "int8",
+    "discounts": "float32",
+    "positions": "int32",
+    "orientations": "int32",
+    "global_text": "<U651",
+    "world_rgb": "uint8",
+    "action_names": "<U10",
+    "game": "<U8",
+    "num_players": "int64",
+    "num_steps": "int64",
+    "obs_COLLECTIVE_REWARD": "float64",
+    "obs_NUM_OTHERS_WHO_CLEANED_THIS_STEP": "float64",
+    "obs_ORIENTATION": "int32",
+    "obs_POSITION": "int32",
+    "obs_READY_TO_SHOOT": "float64",
+    "obs_RGB": "uint8"
+  }
+}
