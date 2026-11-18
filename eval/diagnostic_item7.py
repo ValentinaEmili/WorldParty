@@ -13,16 +13,16 @@ Examples
 
     # one timestep
     ./venv/bin/python eval/diagnostic_item7.py \
-        --rollout data/clean_up_item4.npz --step 25 --output eval/item7.png
+        --rollout examples/clean_up/data/clean_up_item4.npz --step 25 --output examples/clean_up/eval/item7.png
 
     # several timesteps stacked vertically
     ./venv/bin/python eval/diagnostic_item7.py \
-        --rollout data/clean_up_item4.npz --steps 0 10 20 30 \
-        --output eval/item7_sheet.png
+        --rollout examples/clean_up/data/clean_up_item4.npz --steps 0 10 20 30 \
+        --output examples/clean_up/eval/item7_sheet.png
 
     # animated version of every timestep
     ./venv/bin/python eval/diagnostic_item7.py \
-        --rollout data/clean_up_item4.npz --gif eval/item7.gif
+        --rollout examples/clean_up/data/clean_up_item4.npz --gif examples/clean_up/eval/item7.gif
 
 Player colours
 --------------
