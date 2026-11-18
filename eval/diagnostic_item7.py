@@ -271,7 +271,7 @@ def draw_players(
 
     for player, (col, row) in enumerate(np.asarray(positions).reshape(-1, 2)):
         col, row = int(col), int(row)
-        if not (0 <= row < grid_h and 0 <= col < grid_w):
+        if not (0 <= row < grid_h and 0 <= col < grid_w) or rows[row][col] != 'A':
             continue
         color = player_colors[player % len(player_colors)]
         # player coords (col, row)-------------------------------> SCALED  ->
